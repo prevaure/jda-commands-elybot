@@ -39,10 +39,6 @@ public class EventParser {
             return false;
         }
 
-        if (settings.getMutedUsers().contains(event.getAuthor().getIdLong())) {
-            return false;
-        }
-
         String message = event.getMessage().getContentDisplay();
         String prefix = settings.getPrefix();
         if (message.startsWith(prefix) || settings.getPrefixAliases().stream().anyMatch(message::startsWith)) {
