@@ -12,6 +12,9 @@ com.github.kaktushose.jda.commands.dispatching.filter.impl
 com.github.kaktushose.jda.commands.dispatching.parser
 com.github.kaktushose.jda.commands.dispatching.parser.impl
 com.github.kaktushose.jda.commands.dispatching.router
+com.github.kaktushose.jda.commands.dispatching.router.impl
+com.github.kaktushose.jda.commands.dispatching.sender
+com.github.kaktushose.jda.commands.dispatching.sender.impl
 com.github.kaktushose.jda.commands.dispatching.validation
 com.github.kaktushose.jda.commands.dispatching.validation.impl
 com.github.kaktushose.jda.commands.documentation
