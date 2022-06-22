@@ -76,13 +76,13 @@ public class SlashCommandUpdater {
     }
 
     private void addHelpCommands(Collection<SlashCommandData> commandData, Collection<String> labels) {
-        OptionData optionData = new OptionData(OptionType.STRING, "command", "the command you need help with");
+        OptionData optionData = new OptionData(OptionType.STRING, "commande", "La commande pour laquelle vous avez besoin d'aide");
         if (labels.size() > 25) {
             optionData.setAutoComplete(true);
         } else {
             optionData.addChoices(labels.stream().map(s -> new Command.Choice(s, s)).collect(Collectors.toList()));
         }
-        commandData.add(Commands.slash("help", "Get specific help for commands").addOptions(optionData));
+        commandData.add(Commands.slash("help", "Permet d'obtenir de l'aide sur l'utilisation des commandes").addOptions(optionData));
 
         autoCompleteListener.setLabels(labels);
     }

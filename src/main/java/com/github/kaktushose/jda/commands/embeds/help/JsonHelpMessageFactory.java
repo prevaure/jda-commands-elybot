@@ -67,16 +67,16 @@ public class JsonHelpMessageFactory extends DefaultHelpMessageFactory {
         StringBuilder sbCommands = new StringBuilder();
         String name;
         if (command.isSuper()) {
-            name = "Sub Commands:";
+            name = "Sous commandes:";
             List<CommandDefinition> commands = command.getController().getSubCommands().stream().sorted().collect(Collectors.toList());
             commands.forEach(definition -> sbCommands.append(String.format("`%s`", definition.getLabels().get(0))).append(", "));
         } else {
-            name = "Super Command:";
+            name = "Super Commande:";
             List<CommandDefinition> commands = command.getController().getSuperCommands().stream().sorted().collect(Collectors.toList());
             commands.forEach(definition -> sbCommands.append(String.format("`%s`", definition.getLabels().get(0))).append(", "));
         }
         String commands = sbCommands.toString().isEmpty() ? "N/A" : sbCommands.substring(0, sbCommands.length() - 2);
-        builder.addField(name, commands, false);
+        builder.addField(name, commands, true);
 
         return new MessageBuilder().setEmbeds(builder.build()).build();
     }
@@ -100,7 +100,7 @@ public class JsonHelpMessageFactory extends DefaultHelpMessageFactory {
         superCommands.getSortedByCategories().forEach((category, commands) -> {
             StringBuilder sb = new StringBuilder();
             commands.forEach(command -> sb.append(String.format("`%s`", command.getLabels().get(0))).append(", "));
-            builder.addField(category, sb.substring(0, sb.length() - 2), false);
+            builder.addField(category, sb.substring(0, sb.length() - 2), true);
         });
 
         return new MessageBuilder().setEmbeds(builder.build()).build();
