@@ -54,7 +54,7 @@ public class CommandDocumentation {
      * Generates the markdown.
      */
     public void generate() {
-        docs.append(String.format("> Auto generated command manual | %s",
+        docs.append(String.format("> Documentation générée automatiquement | %s",
                 DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()))
         ).append("\n\n");
 
@@ -67,7 +67,7 @@ public class CommandDocumentation {
                 docs.append(new BoldText("Description:")).append("\n");
                 docs.append(replace(command.getMetadata().getDescription())).append("\n\n");
 
-                docs.append(new BoldText("Usage:")).append("\n");
+                docs.append(new BoldText("Utilisation:")).append("\n");
                 docs.append(replace(command.getMetadata().getUsage())).append("\n\n");
 
                 List<String> labels = command.getLabels().stream().skip(1).collect(Collectors.toList());
@@ -94,11 +94,11 @@ public class CommandDocumentation {
                     commands = command.getController().getSuperCommands().stream().sorted().collect(Collectors.toList());
                 }
                 if (commands.size() > 0) {
-                    docs.append(new BoldText(isSuper ? "Sub Commands:" : "Super Commands:")).append("\n");
+                    docs.append(new BoldText(isSuper ? "Sous-commandes:" : "Super-commande:")).append("\n");
                     commands.forEach(definition -> sbCommands.append(definition.getLabels().get(0)).append(", "));
                     docs.append(sbCommands.substring(0, sbCommands.length() - 2)).append("\n\n");
                 } else {
-                    docs.append(new BoldText(isSuper ? "Sub Commands:" : "Super Commands:")).append("\n");
+                    docs.append(new BoldText(isSuper ? "Sous-commandes:" : "Super-commande:")).append("\n");
                     docs.append("N/A\n\n");
                 }
 
